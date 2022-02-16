@@ -27,7 +27,8 @@ export class Row extends Component {
 
         return data ? (
             <TouchableOpacity
-                onPress={() => handleOnPress(data, index)}
+                disabled={!handleOnPress}
+                onPress={ () => handleOnPress(data, index)}
                 style={[height && {height}, width && {width}, styles.row, style]}>
                 {data.map((item, i) => {
                     const flex = flexArr && flexArr[i];
