@@ -11,12 +11,23 @@ export class Row extends Component {
     };
 
     render() {
-        const {data, style, widthArr, height, flexArr, textStyle, cellTextStyle, handleOnPress, ...props} = this.props;
+        const {
+            data,
+            style,
+            widthArr,
+            height,
+            flexArr,
+            textStyle,
+            cellTextStyle,
+            handleOnPress,
+            index,
+            ...props
+        } = this.props;
         let width = widthArr ? sum(widthArr) : 0;
 
         return data ? (
             <TouchableOpacity
-                onPress={() => handleOnPress(data)}
+                onPress={() => handleOnPress(data, index)}
                 style={[height && {height}, width && {width}, styles.row, style]}>
                 {data.map((item, i) => {
                     const flex = flexArr && flexArr[i];
@@ -56,6 +67,7 @@ export class Rows extends Component {
                     return (
                         <Row
                             key={i}
+                            index={i}
                             data={item}
                             widthArr={widthArr}
                             height={height}
