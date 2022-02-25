@@ -46,5 +46,5 @@ export class Cell extends Component {
 
 const styles = StyleSheet.create({
   cell: { justifyContent: 'center' },
-  text: { backgroundColor: 'transparent' }
+  text: { backgroundColor: 'transparent', color:"#000000" }
 });
